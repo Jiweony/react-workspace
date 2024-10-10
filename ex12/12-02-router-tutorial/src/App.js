@@ -1,13 +1,15 @@
-import { Link, Route, Routes } from "react-router-dom";
+import { Link, Route, Routes, useLocation } from "react-router-dom";
 import Home from "./Home";
 import About from "./About";
 //import { useState } from "react";
 //import Profile from "./Profile";
 import Profiles from "./Profiles";
+import HistorySample from "./HistorySample";
 
 
 function App() {
   //const [count, setCount] = useState(0);
+  const location = useLocation();
   
   return (
     <>
@@ -16,6 +18,7 @@ function App() {
       {/* <li><a href="/">홈(a)</a></li> */}
       <li><Link to="/about">소개</Link></li>
       <li><Link to="/profiles">프로필 목록</Link></li>
+      <li><Link to="/history">뒤로가기 예제</Link></li>
     </ul>
 
     {/*
@@ -29,6 +32,14 @@ function App() {
       <Route path="/about" element={<About/>}/>
       {/* <Route path="/profiles/:username" element={<Profile/>}/> */}
       <Route path="/profiles/*" element={<Profiles/>} />
+      <Route path="/history" element={<HistorySample/>} />
+      {/* <Route path="*" element={
+        <div>
+          <h2>이 페이지는 존재하지 않습니다.</h2>
+          <p>{window.location.pathname}</p>
+        </div>} 
+      /> */}
+      {location.pathname}
     </Routes>
     </>
   );
