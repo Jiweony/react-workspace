@@ -12,6 +12,17 @@ function TodoList() {
     loadTodos();
   }, [loadTodos]);
 
+  if (error) {
+    return (
+      <div>
+        <span class="material-symbols-outlined">error</span>
+        <div style={{ textAlign: "center" }}>
+          예상치 못한 오류가 발생하였습니다.
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="todo-list">
       <ClipLoader
